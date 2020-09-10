@@ -10,7 +10,7 @@ public abstract class MockCredential {
     this("mock-user", 1);
   }
 
-  public MockCredential(String login, Integer operatorId) {
+  public MockCredential(final String login, final Integer operatorId) {
     this.login = login;
     this.operatorId = operatorId;
   }

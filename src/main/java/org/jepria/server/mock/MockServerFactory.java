@@ -4,13 +4,13 @@ import org.jepria.server.ServerFactory;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 
-public class MockServerFactory<T> {
+public final class MockServerFactory<T> {
 
   private final Class<T> daoClass;
 
   private final Class<? extends ServerFactory<T>> factoryClass;
 
-  public MockServerFactory(Class<T> daoClass, Class<? extends ServerFactory<T>> factoryClass) {
+  public MockServerFactory(final Class<T> daoClass, final Class<? extends ServerFactory<T>> factoryClass) {
     this.daoClass = daoClass;
     this.factoryClass = factoryClass;
   }

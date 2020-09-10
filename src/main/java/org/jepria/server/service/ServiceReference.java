@@ -2,7 +2,7 @@ package org.jepria.server.service;
 
 import org.glassfish.jersey.server.ResourceConfig;
 
-public class ServiceReference {
+public final class ServiceReference {
 
   public static final String DEFAULT_API_PATH = "/api";
 
@@ -18,11 +18,13 @@ public class ServiceReference {
 
   private final ResourceConfig resourceConfig;
 
-  public ServiceReference(ResourceConfig resourceConfig) {
+  public ServiceReference(final ResourceConfig resourceConfig) {
     this(DEFAULT_API_PATH, DEFAULT_CONTEXT_PATH, DEFAULT_SERVLET_NAME, resourceConfig);
   }
 
-  public ServiceReference(String apiPath, String contextPath, String servletName, ResourceConfig resourceConfig) {
+  public ServiceReference(
+      final String apiPath, final String contextPath, final String servletName, final ResourceConfig resourceConfig
+  ) {
     this.apiPath = apiPath;
     this.contextPath = contextPath;
     this.servletName = servletName;

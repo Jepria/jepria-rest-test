@@ -6,7 +6,7 @@ import org.jepria.server.mock.MockCredential;
 import org.jepria.server.mock.MockServerFactory;
 import org.jepria.server.service.ServiceReference;
 
-public class EnvironmentImpl<T> implements Environment<T> {
+public final class EnvironmentImpl<T> implements Environment<T> {
   private final EmbeddedServer embeddedServer;
   private final ServiceReference serviceReference;
   private final MockServerFactory<T> mockServerFactory;
@@ -14,7 +14,7 @@ public class EnvironmentImpl<T> implements Environment<T> {
 
   private T mockedDao;
 
-  private EnvironmentImpl(Builder<T> builder) {
+  private EnvironmentImpl(final Builder<T> builder) {
     embeddedServer = builder.embeddedServer;
     serviceReference = builder.serviceReference;
     mockServerFactory = builder.mockServerFactory;
@@ -76,19 +76,19 @@ public class EnvironmentImpl<T> implements Environment<T> {
     private MockCredential mockCredential; // TODO: init with default auth
 
     public Builder(
-        ServiceReference serviceReference,
-        MockServerFactory<T> mockServerFactory
+        final ServiceReference serviceReference,
+        final MockServerFactory<T> mockServerFactory
     ) {
       this.mockServerFactory = mockServerFactory;
       this.serviceReference = serviceReference;
     }
 
-    public Builder<T> embeddedServer(EmbeddedServer embeddedServer) {
+    public Builder<T> embeddedServer(final EmbeddedServer embeddedServer) {
       this.embeddedServer = embeddedServer;
       return this;
     }
 
-    public Builder<T> mockCredential(MockCredential mockCredential) {
+    public Builder<T> mockCredential(final MockCredential mockCredential) {
       this.mockCredential = mockCredential;
       return this;
     }

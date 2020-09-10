@@ -9,7 +9,7 @@ public abstract class EmbeddedServerImpl implements EmbeddedServer {
 
   private final int port;
 
-  protected EmbeddedServerImpl(String baseUri, int port) {
+  protected EmbeddedServerImpl(final String baseUri, final int port) {
     this.baseUri = baseUri;
     this.port = port;
   }

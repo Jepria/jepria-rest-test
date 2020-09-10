@@ -10,7 +10,7 @@ import org.jepria.server.service.ServiceReference;
 import java.io.IOException;
 import java.net.URI;
 
-public class GrizzlyServer extends EmbeddedServerImpl {
+public final class GrizzlyServer extends EmbeddedServerImpl {
 
   private HttpServer grizzly;
 
@@ -18,7 +18,7 @@ public class GrizzlyServer extends EmbeddedServerImpl {
     this(DEFAULT_BASE_URI, DEFAULT_PORT);
   }
 
-  public GrizzlyServer(String baseUri, int port) {
+  public GrizzlyServer(final String baseUri, final int port) {
     super(baseUri, port);
   }
 
@@ -39,7 +39,7 @@ public class GrizzlyServer extends EmbeddedServerImpl {
   }
 
   @Override
-  public void deploy(ServiceReference serviceReference) {
+  public void deploy(final ServiceReference serviceReference) {
     WebappContext context = new WebappContext("WebappContext", serviceReference.getContextPath());
 
     ServletRegistration registration = context.addServlet(
