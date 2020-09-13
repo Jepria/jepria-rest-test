@@ -32,18 +32,18 @@ public final class ServiceReference {
   }
 
   public String getApiPath() {
-    return apiPath;
+    return this.apiPath;
   }
 
   public String getContextPath() {
-    return contextPath;
+    return this.contextPath;
   }
 
   public String getServletName() {
-    return servletName;
+    return this.servletName;
   }
 
   public ResourceConfig getResourceConfig() {
-    return resourceConfig;
+    return this.resourceConfig;
   }
 }

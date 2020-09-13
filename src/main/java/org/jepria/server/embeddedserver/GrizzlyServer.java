@@ -10,7 +10,7 @@ import org.jepria.server.service.ServiceReference;
 import java.io.IOException;
 import java.net.URI;
 
-public final class GrizzlyServer extends EmbeddedServerImpl {
+public class GrizzlyServer extends EmbeddedServerImpl {
 
   private HttpServer grizzly;
 

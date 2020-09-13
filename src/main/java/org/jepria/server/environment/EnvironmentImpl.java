@@ -12,24 +12,31 @@ public final class EnvironmentImpl<T> implements Environment<T> {
   private final MockServerFactory<T> mockServerFactory;
   private final MockCredential mockCredential;
 
+  /**
+   * TODO(mockedDao): Mockito doesn't work without this field.
+   */
   private T mockedDao;
 
   private EnvironmentImpl(final Builder<T> builder) {
-    embeddedServer = builder.embeddedServer;
-    serviceReference = builder.serviceReference;
-    mockServerFactory = builder.mockServerFactory;
-    mockCredential = builder.mockCredential;
+    this.embeddedServer = builder.embeddedServer;
+    this.serviceReference = builder.serviceReference;
+    this.mockServerFactory = builder.mockServerFactory;
+    this.mockCredential = builder.mockCredential;
   }
 
   @Override
   public String getApiUrl() {
     return new StringBuilder()
-        .append(embeddedServer.getUrl())
-        .append(serviceReference.getContextPath())
-        .append(serviceReference.getApiPath())
+        .append(this.embeddedServer.getUrl())
+        .append(this.serviceReference.getContextPath())
+        .append(this.serviceReference.getApiPath())
         .toString();
   }
 
+  /**
+   * TODO: мок создается каждый раз, в этом есть проблема?
+   * @return DAO mock.
+   */
   @Override
   public T getMockedDao() {
     return mockedDao;
@@ -37,43 +44,42 @@ public final class EnvironmentImpl<T> implements Environment<T> {
 
   @Override
   public MockCredential getMockCredential() {
-    return mockCredential;
+    return this.mockCredential;
   }
 
   @Override
   public void setUp() {
-    embeddedServer.start();
-    embeddedServer.deploy(serviceReference);
+    this.embeddedServer.start();
+    this.embeddedServer.deploy(this.serviceReference);
   }
 
   @Override
   public void tearDown() {
-    embeddedServer.shutdown();
+    this.embeddedServer.shutdown();
   }
 
   /**
-   * Моки необходимо инициализировать перед каждым тестом
+   * Объекты необходимо мокировать перед каждым тестом: <br/>
+   * - мокаем DAO. <br/>
+   * - мокаем авторизацию пользователя в сервисах.
    */
   @Override
   public void beforeTest() {
-    try {
-      mockedDao = mockServerFactory.getDao();
-    } catch (ReflectiveOperationException e) {
-      throw new RuntimeException(e);
-    }
-    if (mockCredential != null) { // TODO: remove
-      mockCredential.mock();
-    }
+    this.mockedDao = this.mockServerFactory.getDao(); // TODO(mocked dao)
+    this.mockCredential.mock();
   }
-
-  @Override
-  public void afterTest() {}
 
   public static class Builder<T> {
     private EmbeddedServer embeddedServer = new GrizzlyServer();
     private final ServiceReference serviceReference;
     private final MockServerFactory<T> mockServerFactory;
-    private MockCredential mockCredential; // TODO: init with default auth
+    private MockCredential mockCredential = new MockCredential() {
+      @Override
+      protected void logon() {}
+
+      @Override
+      protected void grant() {}
+    };
 
     public Builder(
         final ServiceReference serviceReference,
