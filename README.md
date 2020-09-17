@@ -49,8 +49,10 @@ Library for testing services made using jepria-rest
 
 3. Write tests. Simple example:
 ```
-@RunWith(PowerMockRunner.class) // include PowerMock
-@PrepareForTest({pkg_Operator.class, SimpleServerFactory.class}) // pkg_Operator.class for mock Auth, SimpleServerFactory.class for mock DAO
+// include PowerMock
+@RunWith(PowerMockRunner.class) 
+// pkg_Operator.class for mock Auth, SimpleServerFactory.class for mock DAO
+@PrepareForTest({pkg_Operator.class, SimpleServerFactory.class}) 
 public class SimpleServiceTest { // Test class for SimpleJaxrsAdapter
 
   // Creation test environment
@@ -58,7 +60,8 @@ public class SimpleServiceTest { // Test class for SimpleJaxrsAdapter
       new ServiceReference(
           new RestConfig()  // Your application ResourceConfig
       ),
-      new MockServerFactory<>(SimpleDao.class, SimpleServerFactory.class) // Your JaxrsAdapter factory and DAO classes. Don't forget to add factory to test class annotation
+      // Your JaxrsAdapter factory and DAO classes. Don't forget to add factory to test class annotation
+      new MockServerFactory<>(SimpleDao.class, SimpleServerFactory.class) 
   ).build();
 
   // Below methods that preparing test environment
@@ -91,6 +94,7 @@ public class SimpleServiceTest { // Test class for SimpleJaxrsAdapter
 ```
 
 # Pros and cons
+```
 + full support for jepria-rest (factory implementation)
 + there is no dependecies on foreign framework (web-server implementation can be easily replaced)
 + don't use DI/IoC containers
@@ -100,3 +104,4 @@ public class SimpleServiceTest { // Test class for SimpleJaxrsAdapter
 
 - dependens on PowerMock
 - downgrade junit4 to junit 5 because of PowerMock
+```
