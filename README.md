@@ -86,9 +86,17 @@ public class SimpleServiceTest { // Test class for SimpleJaxrsAdapter
   }
 
   @Test
-  public void get_return_ok() {
-    // write your test code
-    // use Arrange-Act-Assert pattern
+  public void method_ok() {
+    // write test code using Arrange-Act-Assert pattern
+    // Arrange
+    Mockito.when(env.getMockedDao().method("input-data")).thenReturn("expected-data");
+    
+    // Act
+    Response response = ...
+    
+    // Assert
+    Assert.assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+    Assert.assertEquals("expected-response", response.readEntity(String.class));
   }
 }
 ```
