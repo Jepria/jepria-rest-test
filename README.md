@@ -20,7 +20,7 @@ Library for testing services made using jepria-rest
 <dependency>
   <groupId>org.jepria</groupId>
   <artifactId>jepria-rest-test</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>0.1.0-SNAPSHOT</version>
   <scope>test</scope>
 </dependency>
 <!-- grizzly embedded server -->
