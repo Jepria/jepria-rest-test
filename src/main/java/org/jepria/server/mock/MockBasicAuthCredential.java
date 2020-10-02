@@ -1,7 +1,6 @@
 package org.jepria.server.mock;
 
 import com.technology.jep.jepcommon.security.pkg_Operator;
-import org.jepria.server.mock.MockCredential;
 import org.jepria.server.service.security.HttpBasicDynamicFeature;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
@@ -11,10 +10,14 @@ import java.sql.SQLException;
 
 public class MockBasicAuthCredential extends MockCredential {
 
-  public MockBasicAuthCredential(String... roles) {
+  public MockBasicAuthCredential(final String... roles) {
     super(roles);
   }
 
+  /**
+   * Attention: you need to add <b>pkg_Operator.class</b>
+   * to @PrepareForTest annotation in your test class to mock.
+   */
   @Override
   protected void logon() {
     PowerMockito.mockStatic(pkg_Operator.class);
@@ -25,15 +28,15 @@ public class MockBasicAuthCredential extends MockCredential {
           super.getOperatorId()
       );
     } catch (SQLException e) {
+      // it will never happen, because we mock function
       e.printStackTrace();
     }
-}
+  }
 
   /**
    * Don't forget to add HttpBasicDynamicFeature.HttpBasicContainerRequestFilter.class
    * to @PrepareForTest - annotation in your Test-class
    */
-
   @Override
   protected void grant() {
     try {

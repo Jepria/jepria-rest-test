@@ -6,7 +6,7 @@
 
     <groupId>org.jepria</groupId>
     <artifactId>jepria-rest-test</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -74,7 +74,7 @@
                                     <type>${project.packaging}</type>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>
-                                        ${env.BIN_HOME}/deploy/org/jepria/${project.artifactId}/${project.version}
+                                        ${env.BIN_HOME}/build/org/jepria/${project.artifactId}/${project.version}
                                     </outputDirectory>
                                 </artifactItem>
                             </artifactItems>

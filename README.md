@@ -103,8 +103,8 @@ public class SimpleServiceTest { // Test class for SimpleJaxrsAdapter
 
 # Pros and cons
 ```
-+ full support for jepria-rest (factory implementation)
-+ there is no dependecies on foreign framework (web-server implementation can be easily replaced)
++ full support for jepria-rest 
++ doesn't depend on external framework (web-server implementation can be easily replaced)
 + don't use DI/IoC containers
 + use "real" ResourceConfig from application 
 + full analog deploy on web-server
