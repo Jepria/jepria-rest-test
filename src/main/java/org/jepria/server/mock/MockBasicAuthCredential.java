@@ -1,7 +1,7 @@
 package org.jepria.server.mock;
 
-import com.technology.jep.jepcommon.security.pkg_Operator;
 import org.jepria.server.service.security.HttpBasicDynamicFeature;
+import org.jepria.server.service.security.pkg_Operator;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.reflect.Whitebox;
