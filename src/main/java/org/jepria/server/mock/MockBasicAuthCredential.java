@@ -27,7 +27,7 @@ public class MockBasicAuthCredential extends MockCredential {
     PowerMockito.mockStatic(pkg_Operator.class);
     try {
       Mockito.when(
-          pkg_Operator.logon(Mockito.anyObject(), Mockito.eq(super.getLogin()))
+          pkg_Operator.logon(Mockito.anyObject(), Mockito.eq(super.getLogin()), Mockito.anyObject(), Mockito.anyObject())
       ).thenReturn(
           super.getOperatorId()
       );
