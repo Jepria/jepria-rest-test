@@ -14,6 +14,10 @@ public class MockBasicAuthCredential extends MockCredential {
     super(roles);
   }
 
+  public MockBasicAuthCredential(final String login, final Integer operatorId, final String... roles) {
+    super(login, operatorId, roles);
+  }
+
   /**
    * Attention: you need to add <b>pkg_Operator.class</b>
    * to @PrepareForTest annotation in your test class to mock.
@@ -23,7 +27,7 @@ public class MockBasicAuthCredential extends MockCredential {
     PowerMockito.mockStatic(pkg_Operator.class);
     try {
       Mockito.when(
-          pkg_Operator.logon(Mockito.anyObject(), Mockito.eq(super.getLogin()))
+          pkg_Operator.logon(Mockito.anyObject(), Mockito.eq(super.getLogin()), Mockito.anyObject(), Mockito.anyObject())
       ).thenReturn(
           super.getOperatorId()
       );
