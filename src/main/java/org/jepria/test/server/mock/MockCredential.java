@@ -1,4 +1,4 @@
-package org.jepria.server.mock;
+package org.jepria.test.server.mock;
 
 import java.util.Arrays;
 import java.util.Collections;

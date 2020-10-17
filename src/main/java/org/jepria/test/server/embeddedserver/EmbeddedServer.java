@@ -1,6 +1,6 @@
-package org.jepria.server.embeddedserver;
+package org.jepria.test.server.embeddedserver;
 
-import org.jepria.server.service.ServiceReference;
+import org.jepria.test.server.service.ServiceReference;
 
 public interface EmbeddedServer {
   void start();

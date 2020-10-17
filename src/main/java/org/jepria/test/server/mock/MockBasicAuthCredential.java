@@ -1,4 +1,4 @@
-package org.jepria.server.mock;
+package org.jepria.test.server.mock;
 
 import org.jepria.server.service.security.HttpBasicDynamicFeature;
 import org.jepria.server.service.security.pkg_Operator;

@@ -1,11 +1,11 @@
-package org.jepria.server.embeddedserver;
+package org.jepria.test.server.embeddedserver;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.servlet.ServletRegistration;
 import org.glassfish.grizzly.servlet.WebappContext;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.servlet.ServletContainer;
-import org.jepria.server.service.ServiceReference;
+import org.jepria.test.server.service.ServiceReference;
 
 import java.io.IOException;
 import java.net.URI;
