@@ -1,4 +1,4 @@
-package org.jepria.server.embeddedserver;
+package org.jepria.test.server.embeddedserver;
 
 public abstract class EmbeddedServerImpl implements EmbeddedServer {
   public static final String DEFAULT_BASE_URI = "http://localhost";

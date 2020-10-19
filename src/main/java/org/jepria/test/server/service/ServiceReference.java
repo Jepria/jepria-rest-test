@@ -1,4 +1,4 @@
-package org.jepria.server.service;
+package org.jepria.test.server.service;
 
 import org.glassfish.jersey.server.ResourceConfig;
 

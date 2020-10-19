@@ -1,4 +1,4 @@
-package org.jepria.server.mock;
+package org.jepria.test.server.mock;
 
 import org.jepria.server.ServerFactory;
 import org.mockito.Mockito;

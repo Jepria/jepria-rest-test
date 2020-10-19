@@ -1,4 +1,4 @@
-package org.jepria.server.environment;
+package org.jepria.test.server.environment;
 
 /**
  * Plain environment which contains server and service.

@@ -1,10 +1,10 @@
-package org.jepria.server.environment;
+package org.jepria.test.server.environment;
 
-import org.jepria.server.embeddedserver.EmbeddedServer;
-import org.jepria.server.embeddedserver.GrizzlyServer;
-import org.jepria.server.mock.MockCredential;
-import org.jepria.server.mock.MockServerFactory;
-import org.jepria.server.service.ServiceReference;
+import org.jepria.test.server.embeddedserver.EmbeddedServer;
+import org.jepria.test.server.embeddedserver.GrizzlyServer;
+import org.jepria.test.server.mock.MockCredential;
+import org.jepria.test.server.mock.MockServerFactory;
+import org.jepria.test.server.service.ServiceReference;
 
 public final class EnvironmentImpl<T> implements Environment<T> {
   private final EmbeddedServer embeddedServer;
