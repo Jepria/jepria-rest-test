@@ -20,7 +20,7 @@ Library for testing services made using jepria-rest
 <dependency>
   <groupId>org.jepria.test</groupId>
   <artifactId>jepria-rest-test</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
+  <version>2.1.0-SNAPSHOT</version>
   <scope>test</scope>
 </dependency>
 <!-- grizzly embedded server -->
@@ -61,7 +61,7 @@ public class SimpleServiceTest { // Test class for SimpleJaxrsAdapter
           new RestConfig()  // Your application ResourceConfig
       ),
       // Your JaxrsAdapter factory and DAO classes. Don't forget to add factory to test class annotation
-      new MockServerFactory<>(SimpleDao.class, SimpleServerFactory.class) 
+      new MockServerFactoryImpl<>(SimpleServerFactory.class) 
   ).build();
 
   // Below methods that preparing test environment
