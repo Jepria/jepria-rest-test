@@ -19,7 +19,7 @@
         <maven.dependency.plugin.version>2.8</maven.dependency.plugin.version>
 
         <jersey.version>2.29</jersey.version>
-        <jepria.version>12.2.0-SNAPSHOT</jepria.version>
+        <jepria.version>12.2.1</jepria.version>
     </properties>
 
     <dependencies>
