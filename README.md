@@ -63,7 +63,7 @@ public class SimpleServiceTest { // Test class for SimpleJaxrsAdapter
           new RestConfig()  // Your application ResourceConfig
       ),
       // Your JaxrsAdapter factory and DAO classes. Don't forget to add factory to test class annotation
-      new MockServerFactory<>(SimpleDao.class, SimpleServerFactory.class) 
+      new MockServerFactoryImpl<>(SimpleServerFactory.class) 
   ).build();
 
   // Below methods that preparing test environment
