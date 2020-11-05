@@ -1,6 +1,8 @@
 # jepria-rest-test
 Library for testing services made using jepria-rest
 
+Compatibility: jepria-rest-12.0.0 - jepria-rest-12.2.1
+
 # How to use:
 1. Add dependencies to maven:
 ```
@@ -20,7 +22,7 @@ Library for testing services made using jepria-rest
 <dependency>
   <groupId>org.jepria.test</groupId>
   <artifactId>jepria-rest-test</artifactId>
-  <version>2.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <scope>test</scope>
 </dependency>
 <!-- grizzly embedded server -->
