@@ -22,7 +22,7 @@ Compatibility: jepria-rest-12.0.0 - jepria-rest-12.2.1
 <dependency>
   <groupId>org.jepria.test</groupId>
   <artifactId>jepria-rest-test</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <scope>test</scope>
 </dependency>
 <!-- grizzly embedded server -->

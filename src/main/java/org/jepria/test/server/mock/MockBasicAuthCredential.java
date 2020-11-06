@@ -48,14 +48,14 @@ public class MockBasicAuthCredential extends MockCredential {
           HttpBasicDynamicFeature.HttpBasicContainerRequestFilter.class, "JerseySecurityContext"
       );
       PowerMockito.replace(
-          PowerMockito.method(jerseySecurityContextClass, "isUserInRole", String.class)
+          jerseySecurityContextClass.getMethod("isUserInRole", String.class)
       ).with((proxy, method, args) -> {
         if (super.getRoles().contains(args[0])) {
           return true;
         }
         return false;
       });
-    } catch (ClassNotFoundException e) {
+    } catch (ReflectiveOperationException e) {
       throw new RuntimeException(e);
     }
   }
