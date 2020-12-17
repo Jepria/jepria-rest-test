@@ -3,7 +3,10 @@ Library for testing services made using jepria-rest
 
 Compatibility: jepria-rest-12.0.0 - jepria-rest-12.2.1
 
-# How to use:
+# How to use with DI and JerseyTest (versions jepria-rest-test-2.*)
+TBD
+
+# How to use with a static factory (versions jepria-rest-test-1.*)
 1. Add dependencies to maven:
 ```
 <!-- for test: -->
@@ -101,17 +104,4 @@ public class SimpleServiceTest { // Test class for SimpleJaxrsAdapter
     Assert.assertEquals("expected-response", response.readEntity(String.class));
   }
 }
-```
-
-# Pros and cons
-```
-+ full support for jepria-rest 
-+ doesn't depend on external framework (web-server implementation can be easily replaced)
-+ don't use DI/IoC containers
-+ use "real" ResourceConfig from application 
-+ full analog deploy on web-server
-+ minified setting code in application tests 
-
-- dependens on PowerMock
-- downgrade junit4 to junit 5 because of PowerMock
 ```
