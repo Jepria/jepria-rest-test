@@ -3,8 +3,93 @@ Library for testing services made using jepria-rest
 
 Compatibility: jepria-rest-12.0.0 - jepria-rest-12.2.1
 
+See jepria-showcase project for more detailed examples.
+
 # How to use with DI and JerseyTest (versions jepria-rest-test-2.*)
-TBD
+1. Add dependencies to maven (note: use dependencyManagement for dependecies control)
+```
+<!-- for test: -->
+<dependency>
+  <groupId>org.junit.jupiter</groupId>
+  <artifactId>junit-jupiter</artifactId>
+  <version>5.6.0</version>
+  <scope>test</scope>
+</dependency>
+
+<dependency>
+  <groupId>org.jepria.test</groupId>
+  <artifactId>jepria-rest-test</artifactId>
+  <version>2.0.0</version>
+  <scope>test</scope>
+</dependency>
+
+<dependency>
+  <groupId>org.mockito</groupId>
+  <artifactId>mockito-core</artifactId>
+  <version>${mockito.version}</version>
+  <scope>test</scope>
+</dependency>
+
+<dependency>
+  <groupId>org.mockito</groupId>
+  <artifactId>mockito-inline</artifactId>
+  <version>${mockito.version}</version>
+  <scope>test</scope>
+</dependency>
+
+<dependency>
+  <groupId>org.mockito</groupId>
+  <artifactId>mockito-junit-jupiter</artifactId>
+  <version>${mockito.version}</version>
+  <scope>test</scope>
+</dependency>
+
+<!-- grizzly embedded server -->
+<dependency>
+  <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+  <artifactId>jersey-test-framework-provider-grizzly2</artifactId>
+  <version>${jersey.version}</version>
+  <scope>test</scope>
+</dependency>
+```
+2. Write tests. Simple example:
+```
+/**
+ * Test class for SimpleJaxrsAdapter.
+ */
+class SimpleServiceTest extends JepriaTest {
+
+  /**
+   * Declare mock for dao.
+   */
+  @Mock
+  private SimpleDao mockedDao;
+
+  @Override
+  protected Application configure() {
+    MockitoAnnotations.openMocks(this); // initialize mocks
+
+    // enable tracing if you need it
+    enable(TestProperties.DUMP_ENTITY);
+    enable(TestProperties.LOG_TRAFFIC);
+
+    return new TestApplicationConfig(JepriaTest.credential) {
+      {
+        register(SimpleJaxrsAdapter.class); // register testing adapter
+
+        register(new AbstractBinder() {
+          @Override
+          protected void configure() {
+            bind(mockedDao).to(SimpleDao.class); // register mock for dao
+            bindAsContract(SimpleService.class); // register service for our adapter
+            
+            // bind other classes
+          }
+        });
+      }
+    };
+  }
+```
 
 # How to use with a static factory (versions jepria-rest-test-1.*)
 1. Add dependencies to maven:
