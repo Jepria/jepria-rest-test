@@ -89,6 +89,21 @@ class SimpleServiceTest extends JepriaTest {
       }
     };
   }
+  
+  @Test
+  void method_ok() {
+    // write test code using Arrange-Act-Assert pattern
+    // Arrange
+    Mockito.when(this.mockedDao.method("input-data")).thenReturn("expected-data");
+    
+    // Act
+    Response response = ...
+    
+    // Assert
+    Assert.assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+    Assert.assertEquals("expected-response", response.readEntity(String.class));
+  }
+}
 ```
 
 # How to use with a static factory (versions jepria-rest-test-1.*)
